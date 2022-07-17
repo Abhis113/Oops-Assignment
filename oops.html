@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   
+
+class User {
+  #password;
+  constructor(name) {
+    this.name = name;
+  }
+
+  #validateUsername(userName) {
+   
+    return true;
+  }
+
+  #validatePassword(password) {
+    
+    return true;
+  }
+
+  signUp(userName, password) {
+    let isValidated = false;
+
+   
+
+    isValidated = this.#validateUsername(userName) && this.#validatePassword(password);
+
+    if (isValidated) {
+      this.userName = userName;
+      this.#password = password;
+
+      console.log('user signed up successfully');
+    } else {
+      console.log('signup failure');
+    }
+    
+  }
+
+  login(username, password) {
+    if (username === this.userName && password === this.#password) {
+      console.log('logged in successfully');
+    } else {
+      console.log('authentication failed');
+    }
+  }
+
+  
+  set password(newPassword) {
+    this.#password = newPassword;
+  }
+
+  get naamBatao() {
+    return this.name;
+  }
+}
+
+class Author extends User {
+  constructor(name) {
+    super(name);
+ 
+  }
+}
+
+class Admin extends User {
+  constructor(name) {
+    super(name);
+  }
+}
+
+// let a1 = new Author('vivekananda');
+// console.log('a1:', a1);
+
+// let u1 = new User('pablo');
+
+// //clicked on button
+
+// u1.signUp('real_pablo_official_7', 'pablo123');
+
+// u1.login('real_pablo_official_7', 'pablo123');
+
+// let a1 = new Author('vivekananda');
+
+// a1.signUp('vivekananda_', 'vivekananda123');
+// console.log('a1:', a1);
+
+let admin1 = new Admin('babu bhaiyaa');
+
+admin1.signUp('paisahipaisa', 'khopodi_tod');
+
+admin1.login('paisahipaisa', 'khopodi_tod');
+
+// admin1.password('are ja re, tu jaa re');
+
+admin1.password = 'are ja re, tu ja re';
+
+// console.log('admin1:', admin1.name);
+
+console.log(admin1.naamBatao);
+
+
+
+</script>
